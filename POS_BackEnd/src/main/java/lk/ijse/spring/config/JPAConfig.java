@@ -1,4 +1,4 @@
-package java.lk.ijse.spring.config;
+package lk.ijse.spring.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +33,14 @@ public class JPAConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds, JpaVendorAdapter va) {
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
-        bean.setJpaVendorAdapter(va);//vendor (Hibernate)
-        bean.setDataSource(ds);//connection
-        bean.setPackagesToScan(env.getRequiredProperty("entity.package.name"));// location of the entity
+        bean.setJpaVendorAdapter(va);
+        bean.setDataSource(ds);
+        bean.setPackagesToScan(env.getRequiredProperty("entity.package.name"));
         return bean;
     }
 
     @Bean
     public DataSource dataSource() throws NamingException {
-        //Driver Manager Data Source
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl(env.getRequiredProperty("my.app.url"));
         dataSource.setUsername(env.getRequiredProperty("my.app.username"));

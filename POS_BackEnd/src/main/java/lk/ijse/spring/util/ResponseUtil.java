@@ -1,4 +1,4 @@
-package java.lk.ijse.spring.util;
+package lk.ijse.spring.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

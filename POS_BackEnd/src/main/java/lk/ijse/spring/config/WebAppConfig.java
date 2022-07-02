@@ -1,4 +1,4 @@
-package java.lk.ijse.spring.config;
+package lk.ijse.spring.config;
 
 
 import org.modelmapper.ModelMapper;
