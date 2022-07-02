@@ -1,5 +1,7 @@
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.OrderDTO;
+import lk.ijse.spring.service.PurchaseOrderService;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,14 +23,14 @@ public class PurchaseOrderController {
 
     @ResponseStatus(HttpStatus.CREATED) //201
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil purchaseOrder(@RequestBody OrdersDTO ordersDTO) {
+    public ResponseUtil purchaseOrder(@RequestBody OrderDTO ordersDTO) {
         System.out.println(ordersDTO.toString());
         poService.purchaseOrder(ordersDTO);
         return new ResponseUtil(200, "Save", null);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateOrder(@RequestBody OrdersDTO ordersDTO) {
+    public ResponseUtil updateOrder(@RequestBody OrderDTO ordersDTO) {
         poService.updateOrder(ordersDTO);
         return new ResponseUtil(200, "Updated", null);
     }
